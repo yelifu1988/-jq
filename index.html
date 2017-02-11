@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>随机背景和短语</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jQuery UI - v1.11.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="main-box clearfix">
+			<div class="main-text clearfix">
+				岁月如摧，往事如宝剑出鞘不归，午夜人犹未睡，谁来与我干杯！
+			</div>
+			<div class="zuozhe pull-right clearfix">
+				古龙
+			</div>
+			<div class="buttons clearfix">
+				<button id="btn" class="pull-right">change</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			var colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+			function getchange(){
+				$.ajax({
+					type:"get",
+					dataType: "json",
+					url:"data/json.json",
+					success:function(infos){
+						var info=Math.floor(Math.random() * infos.length);
+						//alert(infos[info].text);
+						$(".main-text").animate({
+							opacity: 0
+						},500,function(){
+							 $(this).animate({
+				            opacity: 1
+				          }, 500);
+				          $(".main-text").text(infos[info].text);
+						});
+						$(".zuozhe").animate({
+							opacity: 0
+						},500,function(){
+							 $(this).animate({
+				            opacity: 1
+				          }, 500);
+				          $(".zuozhe").text(infos[info].zuozhe);
+						});
+						
+					}
+					
+				})
+				var color = Math.floor(Math.random() * colors.length);
+				$("body").animate({
+					backgroundColor: colors[color],
+        			color: colors[color]
+				},1000);
+				$("#btn").animate({
+					backgroundColor: colors[color]
+				},1000);
+			}
+			$("#btn").on("click",getchange)
+		})
+	</script>
+</html>

@@ -1,0 +1,43 @@
+body{
+	background-color: aquamarine;
+}
+.main-box{
+	background-color: #fff;
+	width: 500px;
+	margin: 50px auto;
+	padding: 30px;
+	border-radius: 5px;
+}
+.main-text{
+	padding: 40px 40px 20px 40px;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bolder;
+	color: #333;
+}
+.buttons{
+}
+button{
+	height: 38px;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #333;
+	outline: none;
+	font-size: 0.85em;
+	padding: 8px 18px 6px 18px;
+	margin-top: 10px;
+	opacity: 1;
+	cursor: pointer;
+}
+.zuozhe{
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bolder;
+	color: #333;
+	height: 40px;
+	line-height: 40px;
+	width: 500px;
+	text-align: right;
+	
+}
